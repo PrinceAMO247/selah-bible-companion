@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5f0">
+    <meta name="description" content="Find encouragement in Scripture, discover what it means, and put it into practice in everyday life.">
+    <title>COMPANION — Scripture for everyday life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Selah home">
+          <span class="brand-mark" aria-hidden="true">s.</span>
+          <span class="brand-name">selah<span class="brand-period">.</span><small>YOUR DAILY BIBLE COMPANION</small></span>
+        </a>
+
+        <p class="nav-label">YOUR SPACE</p>
+        <nav class="primary-nav">
+          <a class="nav-link active" href="#home"><span aria-hidden="true">⌂</span> Today</a>
+          <a class="nav-link" href="#readings"><span aria-hidden="true">▤</span> Explore scripture</a>
+          <a class="nav-link" href="#topics"><span aria-hidden="true">✳</span> Life topics</a>
+          <a class="nav-link" href="#saved" id="saved-nav"><span aria-hidden="true">♡</span> My saved verses <span class="saved-count" id="saved-count">0</span></a>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="note-spark" aria-hidden="true">✳</span>
+          <p>“Be still, and know that I am God.”</p>
+          <span>PSALM 46:10</span>
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="avatar" aria-hidden="true">✦</span>
+          <span class="footer-copy"><strong>A moment for you</strong><small>Take what you need today.</small></span>
+          <span class="footer-more" aria-hidden="true">···</span>
+        </div>
+      </aside>
+
+      <main id="home">
+        <header class="topbar">
+          <div class="greeting"><span class="greeting-dot"></span> A LITTLE LIGHT FOR YOUR DAY</div>
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="search-input" type="search" placeholder="Search a verse or a feeling..." aria-label="Search verses or topics">
+            <kbd>/</kbd>
+          </label>
+          <button class="profile-button" type="button" aria-label="Your profile">J</button>
+        </header>
+
+        <div class="page-content">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow" id="today-date">A NEW DAY, A NEW BEGINNING</p>
+              <h1>Good morning, friend<span class="heading-spark">✳</span></h1>
+              <p class="welcome-copy">Whatever you’re carrying today, there’s a little wisdom here for you.</p>
+            </div>
+            <div class="streak-chip"><span aria-hidden="true">☼</span> YOUR DAILY PAUSE <strong>01 <small>/ 05 MIN</small></strong></div>
+          </section>
+
+          <section class="hero-card" aria-labelledby="daily-title">
+            <div class="hero-content">
+              <span class="hero-tag"><span aria-hidden="true">✳</span> TODAY’S VERSE</span>
+              <h2 id="daily-title">“Come unto me, all ye that labour and are heavy laden, and I will give you rest.”</h2>
+              <p class="hero-reference">MATTHEW 11:28 <span>·</span> KING JAMES VERSION</p>
+              <div class="hero-actions">
+                <button class="button-light" id="read-reflection" type="button">Read the reflection <span aria-hidden="true">→</span></button>
+                <button class="icon-button hero-save" id="hero-save" type="button" aria-label="Save today's verse" title="Save today's verse">♡</button>
+              </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="sun-halo"></div><div class="sun"></div>
+              <div class="hill hill-back"></div><div class="hill hill-front"></div>
+              <div class="hero-art-caption">BREATHE. YOU’RE RIGHT WHERE YOU NEED TO BE.</div>
+            </div>
+            <span class="hero-index" aria-hidden="true">01 — 05</span>
+          </section>
+
+          <section class="topics-section" id="topics" aria-labelledby="topics-title">
+            <div class="section-heading">
+              <div><p class="eyebrow">MEET YOURSELF WHERE YOU ARE</p><h2 id="topics-title">What’s on your heart?</h2></div>
+              <button class="text-button" id="clear-filter" type="button">See all verses <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="topic-list" role="group" aria-label="Filter verses by topic">
+              <button class="topic-chip selected" data-topic="All" type="button"><span>✳</span> All moments</button>
+              <button class="topic-chip" data-topic="Anxiety" type="button"><span>〰</span> Feeling anxious</button>
+              <button class="topic-chip" data-topic="Strength" type="button"><span>↗</span> Need strength</button>
+              <button class="topic-chip" data-topic="Hope" type="button"><span>☼</span> Finding hope</button>
+              <button class="topic-chip" data-topic="Gratitude" type="button"><span>♡</span> Practicing gratitude</button>
+            </div>
+          </section>
+
+          <section class="readings-section" id="readings" aria-labelledby="readings-title">
+            <div class="section-heading readings-heading">
+              <div><p class="eyebrow">A FEW WORDS TO WALK WITH</p><h2 id="readings-title">A little wisdom for today</h2></div>
+              <span class="results-label" id="results-label">A MOMENT OF REFLECTION</span>
+            </div>
+            <div class="verse-grid" id="verse-grid" aria-live="polite"></div>
+            <p class="empty-state" id="empty-state" hidden>No verses found for that search. Try a feeling like “hope” or “peace.”</p>
+          </section>
+
+          <footer class="page-footer"><span>Made for the moments that matter.</span><span>Scripture quotations are from the King James Version.</span><span>Developed by Prince AMO.</span></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
