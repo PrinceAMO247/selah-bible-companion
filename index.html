@@ -48,15 +48,19 @@
             <input id="search-input" type="search" placeholder="Search a verse or a feeling..." aria-label="Search verses or topics">
             <kbd>/</kbd>
           </label>
-          <button class="profile-button" type="button" aria-label="Your profile">J</button>
+          <div class="header-actions">
+            <button class="auth-button" id="login-button" type="button">Log in</button>
+            <button class="auth-button secondary" id="signup-button" type="button">Sign up</button>
+            <button class="profile-button" id="profile-button" type="button" aria-label="Your profile">PA</button>
+          </div>
         </header>
 
         <div class="page-content">
           <section class="welcome-row">
             <div>
               <p class="eyebrow" id="today-date">A NEW DAY, A NEW BEGINNING</p>
-              <h1>Good morning, friend<span class="heading-spark">✳</span></h1>
-              <p class="welcome-copy">Whatever you’re carrying today, there’s a little wisdom here for you.</p>
+              <h1 id="greeting-heading">Good morning, friend<span class="heading-spark">✳</span></h1>
+              <p class="welcome-copy" id="welcome-copy">Whatever you’re carrying today, there’s a little wisdom here for you.</p>
             </div>
             <div class="streak-chip"><span aria-hidden="true">☼</span> YOUR DAILY PAUSE <strong>01 <small>/ 05 MIN</small></strong></div>
           </section>
@@ -102,10 +106,54 @@
             <p class="empty-state" id="empty-state" hidden>No verses found for that search. Try a feeling like “hope” or “peace.”</p>
           </section>
 
+          <section class="bible-library-section" id="bible-library" aria-labelledby="bible-library-title">
+            <div class="section-heading readings-heading">
+              <div><p class="eyebrow">THE FULL BIBLE</p><h2 id="bible-library-title">Read from Genesis to Revelation</h2></div>
+              <button class="text-button" type="button" id="library-reset">Read the library <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="bible-library-panel">
+              <div class="book-list" id="book-list" aria-label="Bible books"></div>
+              <div class="bible-reader" aria-live="polite">
+                <div class="reader-header">
+                  <span id="selected-book">Genesis</span>
+                  <span id="selected-chapter">Chapter 1</span>
+                </div>
+                <p class="bible-passage" id="bible-passage"></p>
+              </div>
+            </div>
+          </section>
+
           <footer class="page-footer"><span>Made for the moments that matter.</span><span>Scripture quotations are from the King James Version.</span><span>Developed by Prince AMO.</span></footer>
         </div>
       </main>
     </div>
+
+    <div class="auth-modal" id="auth-modal" aria-hidden="true">
+      <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+        <button class="modal-close" id="close-auth-modal" type="button" aria-label="Close sign in panel">×</button>
+        <div class="auth-header">
+          <p class="eyebrow">WELCOME</p>
+          <h3 id="auth-title">Sign in with your details</h3>
+          <p class="auth-intro">Use your username and Gmail address to continue.</p>
+        </div>
+        <div class="auth-tabs" role="tablist" aria-label="Authentication options">
+          <button class="auth-tab active" type="button" data-auth-mode="login" role="tab" aria-selected="true">Log in</button>
+          <button class="auth-tab" type="button" data-auth-mode="signup" role="tab" aria-selected="false">Sign up</button>
+        </div>
+        <form id="auth-form" class="auth-form">
+          <label>
+            <span>Username</span>
+            <input id="auth-username" name="username" type="text" value="Prince AMO" required>
+          </label>
+          <label class="gmail-field">
+            <span>Gmail address</span>
+            <input id="auth-gmail" name="gmail" type="email" value="princeamo@gmail.com" autocomplete="email" required>
+          </label>
+          <button class="auth-submit" type="submit" id="auth-submit">Log in</button>
+        </form>
+      </div>
+    </div>
+
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="app.js"></script>
   </body>
